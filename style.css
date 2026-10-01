@@ -371,8 +371,22 @@ body::after {
   color: #8b7cff;
 }
 
+/* ===== STATUS INDICATOR ===== */
+
 .eyebrow > span:first-child {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  min-width: 7px;
+  border-radius: 50%;
+  background: #8b7cff;
   animation: statusPulse 1.8s infinite;
+}
+
+.status-text {
+  display: inline-block;
+  color: #8b7cff;
+  white-space: nowrap;
 }
 
 @keyframes statusPulse {
@@ -383,4 +397,292 @@ body::after {
   50% {
     box-shadow: 0 0 0 7px rgba(139, 124, 255, 0);
   }
+}
+/* ===== STABLE TYPING HEADLINE ===== */
+
+#typing-text {
+  display: inline-block;
+  min-width: 280px;
+  text-align: left;
+  color: #8b7cff;
+}
+
+.hero h1 {
+  min-height: 160px;
+}
+
+@media (max-width: 800px) {
+  .hero h1 {
+    min-height: 190px;
+  }
+
+  #typing-text {
+    min-width: 230px;
+  }
+}
+/* Keep the typing headline stable */
+.hero h1 {
+  min-height: 160px;
+}
+
+#typing-text {
+  display: inline-block;
+  min-width: 280px;
+  color: #8b7cff;
+  text-align: left;
+}
+
+@media (max-width: 800px) {
+  .hero h1 {
+    min-height: 190px;
+  }
+
+  #typing-text {
+    min-width: 230px;
+  }
+}
+/* ===== PREMIUM HERO CARD ===== */
+
+.hero-card {
+  transform: translateX(30px);
+}
+
+.code-window {
+  backdrop-filter: blur(18px);
+  background: rgba(15, 18, 28, 0.78);
+  border: 1px solid rgba(139, 124, 255, 0.25);
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.45),
+    0 0 45px rgba(139, 124, 255, 0.08);
+  animation: floatingCard 5s ease-in-out infinite;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.code-window:hover {
+  transform: rotate(-1deg) translateY(-8px) scale(1.02);
+  border-color: rgba(139, 124, 255, 0.55);
+}
+
+@keyframes floatingCard {
+  0%, 100% {
+    transform: rotate(-2deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-2deg) translateY(-10px);
+  }
+}
+
+/* Profile circle */
+
+.profile-ring {
+  animation: profileFloat 6s ease-in-out infinite;
+}
+
+@keyframes profileFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+/* Glowing avatar */
+
+.avatar {
+  box-shadow:
+    0 0 25px rgba(139, 124, 255, 0.35),
+    0 0 70px rgba(95, 156, 255, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.08);
+}
+
+/* Code window dots */
+
+.window-top i {
+  transition: transform 0.2s ease;
+}
+
+.code-window:hover .window-top i {
+  transform: scale(1.25);
+}
+
+/* Code text glow */
+
+.code-window pre {
+  text-shadow: 0 0 12px rgba(139, 124, 255, 0.08);
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+  .code-window {
+    animation: none;
+  }
+
+  .profile-ring {
+    animation: none;
+  }
+}
+/* ===== COMPLETELY STABLE HERO ===== */
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero h1 {
+  min-height: 165px;
+}
+
+#typing-text {
+  display: inline-block;
+  width: 320px;
+  min-width: 320px;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.hero-card {
+  transform: translateZ(0);
+}
+
+/* Keep the card anchored */
+.code-window {
+  right: 0;
+}
+
+@media (max-width: 800px) {
+  .hero h1 {
+    min-height: 190px;
+  }
+
+  #typing-text {
+    width: 250px;
+    min-width: 250px;
+  }
+}
+/* ===== PROFILE PHOTO ===== */
+
+.avatar {
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 58% 35%;
+    transform: scale(1.12);
+}
+/* ===== PROFILE IMAGE FIX ===== */
+
+.profile-ring .avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+.profile-ring .avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: 58% 35%;
+    transform: scale(1.08);
+    border-radius: 50%;
+}
+/* ===== PROFILE PHOTO - FINAL FIX ===== */
+
+.profile-ring {
+    position: relative;
+    z-index: 10;
+    filter: none !important;
+}
+
+.profile-ring .avatar {
+    position: relative;
+    z-index: 20;
+    width: 180px;
+    height: 180px;
+    padding: 0 !important;
+    overflow: hidden;
+    border-radius: 50%;
+    filter: none !important;
+    backdrop-filter: none !important;
+    background: transparent !important;
+}
+
+.profile-ring .avatar img {
+    position: relative;
+    z-index: 30;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    object-fit: cover;
+    object-position: 58% 35%;
+    transform: scale(1.08);
+    border-radius: 50%;
+}
+/* ===== MOVE HERO CARD + PROFILE RIGHT ===== */
+
+.hero-card {
+    position: relative;
+    left: 110px;
+}
+
+/* Keep it centered on smaller screens */
+@media (max-width: 800px) {
+    .hero-card {
+        left: 0;
+    }
+}
+/* ===== GITHUB BUTTON ===== */
+
+.github-btn,
+.instagram-btn {
+    border: 1px solid rgba(139, 124, 255, 0.45);
+    color: #d8d5ff;
+    background: rgba(139, 124, 255, 0.06);
+    transition: all 0.3s ease;
+}
+
+.github-btn:hover,
+.instagram-btn:hover {
+    color: white;
+    border-color: #8b7cff;
+    background: rgba(139, 124, 255, 0.14);
+    box-shadow: 0 0 25px rgba(139, 124, 255, 0.2);
+    transform: translateY(-3px);
+}
+/* ===== MATCH CONTACT BUTTON STYLE ===== */
+
+.btn.secondary {
+    border: 1px solid rgba(139, 124, 255, 0.45);
+    color: #d8d5ff;
+    background: rgba(139, 124, 255, 0.06);
+    transition: all 0.3s ease;
+}
+
+.btn.secondary:hover {
+    color: white;
+    border-color: #8b7cff;
+    background: rgba(139, 124, 255, 0.14);
+    box-shadow: 0 0 25px rgba(139, 124, 255, 0.2);
+    transform: translateY(-3px);
 }
